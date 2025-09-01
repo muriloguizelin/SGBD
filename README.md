@@ -1,6 +1,6 @@
 # Simple SGBD
 
-Um Sistema de Gerenciamento de Banco de Dados simples desenvolvido em C++ com interface gráfica em Electron.
+Um Sistema de Gerenciamento de Banco de Dados simples desenvolvido em javascript com interface gráfica em Electron.
 
 ## Características
 
