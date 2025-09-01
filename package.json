@@ -1,0 +1,18 @@
+{
+  "name": "simple-sgbd",
+  "version": "1.0.0",
+  "description": "Sistema de Gerenciamento de Banco de Dados Simples",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "npm start"
+  },
+  "keywords": ["database", "sgbd", "electron", "cpp"],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0"
+  },
+  "dependencies": {
+  }
+}

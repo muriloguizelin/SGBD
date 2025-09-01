@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple SGBD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-database"></i> Simple SGBD</h1>
+            <p>Sistema de Gerenciamento de Banco de Dados Simples</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-table"></i> Tabelas</h3>
+                    <div id="tables-list" class="tables-list">
+                        <p class="loading">Carregando tabelas...</p>
+                    </div>
+                    <button id="refresh-tables" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Atualizar
+                    </button>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3><i class="fas fa-plus"></i> Nova Tabela</h3>
+                    <form id="create-table-form" class="form">
+                        <input type="text" id="table-name" placeholder="Nome da tabela" required>
+                        <textarea id="table-columns" placeholder="Colunas (separadas por vírgula)&#10;Ex: id,nome,idade,email" required></textarea>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Criar Tabela
+                        </button>
+                    </form>
+                </div>
+            </aside>
+
+            <!-- Main Area -->
+            <main class="main-area">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="query">
+                        <i class="fas fa-search"></i> Consultas
+                    </button>
+                    <button class="tab-btn" data-tab="insert">
+                        <i class="fas fa-plus"></i> Inserir Dados
+                    </button>
+                    <button class="tab-btn" data-tab="structure">
+                        <i class="fas fa-cogs"></i> Estrutura
+                    </button>
+                </div>
+
+                <!-- Query Tab -->
+                <div id="query" class="tab-content active">
+                    <div class="query-section">
+                        <h3>Executar Consulta</h3>
+                        <div class="query-form">
+                            <select id="query-table" class="form-control">
+                                <option value="">Selecione uma tabela</option>
+                            </select>
+                            <input type="text" id="query-condition" placeholder="Condição (opcional)" class="form-control">
+                            <button id="execute-query" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Executar
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="results-section">
+                        <h3>Resultados</h3>
+                        <div id="query-results" class="results-container">
+                            <p class="no-data">Nenhum resultado para exibir</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insert Tab -->
+                <div id="insert" class="tab-content">
+                    <div class="insert-section">
+                        <h3>Inserir Dados</h3>
+                        <div class="insert-form">
+                            <select id="insert-table" class="form-control">
+                                <option value="">Selecione uma tabela</option>
+                            </select>
+                            <div id="insert-fields" class="insert-fields">
+                                <p class="no-data">Selecione uma tabela para inserir dados</p>
+                            </div>
+                            <button id="execute-insert" class="btn btn-primary" disabled>
+                                <i class="fas fa-plus"></i> Inserir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Structure Tab -->
+                <div id="structure" class="tab-content">
+                    <div class="structure-section">
+                        <h3>Estrutura da Tabela</h3>
+                        <select id="structure-table" class="form-control">
+                            <option value="">Selecione uma tabela</option>
+                        </select>
+                        <div id="table-structure" class="structure-container">
+                            <p class="no-data">Selecione uma tabela para ver sua estrutura</p>
+                        </div>
+                        <button id="drop-table" class="btn btn-danger" disabled>
+                            <i class="fas fa-trash"></i> Remover Tabela
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Status Bar -->
+        <div id="status-bar" class="status-bar">
+            <span id="status-message">Pronto</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
